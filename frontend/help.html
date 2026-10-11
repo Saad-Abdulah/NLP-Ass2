@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OPAC FAST NUCES — Help</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+    <link rel="stylesheet" href="/assets/help.css" />
+  </head>
+  <body class="help-page">
+    <header class="help-header">
+      <p class="help-kicker">OPAC FAST NUCES</p>
+      <h1>Using the virtual reference desk</h1>
+      <p class="help-lead">
+        This chat connects you to the NUCES Virtual Desk: an automated OPAC assistant for catalogue
+        lookup, borrowing policy, loan due dates, and renewal guidance.
+      </p>
+    </header>
+
+    <main class="help-main">
+      <section>
+        <h2>What you can ask</h2>
+        <ul>
+          <li>Whether a title is in the catalogue, shelf location, and availability status</li>
+          <li>Borrowing period, fines, holds, and renewal rules</li>
+          <li>Due dates and renewal options for your patron card</li>
+        </ul>
+        <p>
+          The assistant does not answer general trivia, jokes, coding homework, weather, or other
+          non-library requests.
+        </p>
+        <p>
+          If you ask for your name without a patron card, the desk will not guess—it is the virtual
+          assistant, not your library account. Use card <code>P-78421</code> when you want account
+          details for the sample record on file.
+        </p>
+      </section>
+
+      <section>
+        <h2>Patron card P-78421</h2>
+        <p>
+          For this deployment, the integrated catalogue includes a <strong>sample patron record</strong>
+          with card number <code>P-78421</code> (Alex Rivera). Use this card when you want to:
+        </p>
+        <ul>
+          <li>See which items are currently on loan and their due dates</li>
+          <li>Ask whether a title on that account can be renewed under library policy</li>
+        </ul>
+        <p>Example: <em>Card P-78421: what is due this week?</em></p>
+        <p>
+          In a full library system, you would sign in with your own card; here the sample card
+          represents that account lookup flow using the same policy rules.
+        </p>
+      </section>
+
+      <section>
+        <h2>Chat controls</h2>
+        <ul>
+          <li><strong>Send</strong> — submit your message (Enter to send, Shift+Enter for a new line)</li>
+          <li><strong>New session</strong> — clear this browser conversation and start fresh server-side history</li>
+          <li><strong>Connected / Offline</strong> — WebSocket status; reconnect automatically when possible</li>
+          <li><strong>Suggested questions</strong> — expand the dropdown in the sidebar for quick prompts</li>
+          <li><strong>Chats</strong> — one empty <strong>New chat</strong> at a time until you send a message; then you can open another. Use <strong>⋯</strong> on a chat for rename or delete.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>While a reply is generated</h2>
+        <p>
+          You will see <strong>NUCES Virtual Desk is thinking</strong> until the first part of the
+          answer appears. Replies stream in word by word. Wait until the line disappears and the
+          input is enabled before sending the next message.
+        </p>
+      </section>
+
+    </main>
+  </body>
+</html>

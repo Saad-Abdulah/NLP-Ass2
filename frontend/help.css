@@ -1,0 +1,86 @@
+.help-page {
+  background: var(--bg);
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.help-header {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 8px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.help-kicker {
+  margin: 0 0 8px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.help-header h1 {
+  margin: 0 0 12px;
+  font-family: var(--font);
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.help-lead {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 62ch;
+}
+
+.help-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 24px 48px;
+}
+
+.help-main section {
+  margin-bottom: 28px;
+  padding: 18px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.help-main h2 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  font-family: var(--font);
+}
+
+.help-main p,
+.help-main li {
+  line-height: 1.55;
+  font-size: 0.9375rem;
+}
+
+.help-main ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.help-main code {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 0.875rem;
+  background: var(--surface-alt);
+  padding: 1px 6px;
+  border: 1px solid var(--border);
+}
+
+.help-main pre {
+  margin: 12px 0 0;
+  padding: 12px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  font-size: 0.8125rem;
+}
+
+.help-main a {
+  color: var(--accent);
+}

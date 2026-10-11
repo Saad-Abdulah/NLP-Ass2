@@ -1,0 +1,11 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.Python
+.DS_Store
+.ollama-runtime.log
+.pytest_cache/
+logs/*.log
+*.tmp

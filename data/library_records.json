@@ -1,0 +1,130 @@
+{
+  "catalogue": [
+    {
+      "id": "BK-1001",
+      "title": "Introduction to Algorithms",
+      "author": "Cormen, Leiserson, Rivest, Stein",
+      "location": "Stacks A / QA76.9.A43",
+      "status": "available",
+      "due_date": null,
+      "borrowed_by": null,
+      "category": "computer_science"
+    },
+    {
+      "id": "BK-1002",
+      "title": "Speech and Language Processing",
+      "author": "Daniel Jurafsky, James H. Martin",
+      "location": "Stacks B / P98",
+      "status": "available",
+      "due_date": null,
+      "borrowed_by": null,
+      "category": "nlp_ai"
+    },
+    {
+      "id": "BK-1003",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "location": "Fiction / FIC FIT",
+      "status": "checked_out",
+      "due_date": "2026-09-22",
+      "borrowed_by": "P-78421",
+      "category": "fiction"
+    },
+    {
+      "id": "BK-1004",
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "location": "Stacks A / QA76.73",
+      "status": "available",
+      "due_date": null,
+      "borrowed_by": null,
+      "category": "software_engineering"
+    },
+    {
+      "id": "BK-1005",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "location": "Fiction / FIC AUS",
+      "status": "on_hold",
+      "due_date": null,
+      "borrowed_by": null,
+      "category": "fiction"
+    },
+    {
+      "id": "BK-1006",
+      "title": "Deep Learning",
+      "author": "Goodfellow, Bengio, Courville",
+      "location": "Reference (library use only)",
+      "status": "reference_only",
+      "due_date": null,
+      "borrowed_by": null,
+      "category": "ai_ml"
+    },
+    {
+      "id": "BK-1010",
+      "title": "Database System Concepts",
+      "author": "Silberschatz, Korth, Sudarshan",
+      "location": "Stacks A / QA76.9.D3",
+      "status": "checked_out",
+      "due_date": "2026-09-18",
+      "borrowed_by": "P-78421",
+      "category": "databases"
+    },
+    {
+      "id": "BK-1011",
+      "title": "Design Patterns",
+      "author": "Gamma, Helm, Johnson, Vlissides",
+      "location": "Stacks A / QA76.76.D47",
+      "status": "available",
+      "due_date": null,
+      "borrowed_by": null,
+      "category": "software_engineering"
+    },
+    {
+      "id": "BK-1018",
+      "title": "Pattern Recognition and Machine Learning",
+      "author": "Christopher M. Bishop",
+      "location": "Stacks B / Q325.5",
+      "status": "available",
+      "due_date": null,
+      "borrowed_by": null,
+      "category": "ai_ml"
+    },
+    {
+      "id": "BK-1021",
+      "title": "The Pragmatic Programmer",
+      "author": "David Thomas, Andrew Hunt",
+      "location": "Stacks A / QA76.6",
+      "status": "available",
+      "due_date": null,
+      "borrowed_by": null,
+      "category": "software_engineering"
+    }
+  ],
+  "patrons": {
+    "P-78421": {
+      "card_number": "P-78421",
+      "name": "Alex Rivera",
+      "email": "alex.rivera@nu.edu.pk",
+      "status": "active",
+      "loans": [
+        {
+          "item_id": "BK-1003",
+          "title": "The Great Gatsby",
+          "due_date": "2026-10-18",
+          "renewals_used": 0
+        },
+        {
+          "item_id": "BK-1010",
+          "title": "Database System Concepts",
+          "due_date": "2026-10-15",
+          "renewals_used": 1
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "updated_at": "2026-10-11T19:36:18.024456",
+    "total_books": 10
+  }
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OPAC FAST NUCES — Virtual Reference Desk</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Library services and chats">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">OPAC</div>
+          <div>
+            <p class="brand-title">OPAC FAST NUCES</p>
+            <p class="brand-sub" id="sidebar-tagline">Virtual reference desk</p>
+          </div>
+        </div>
+
+        <p class="sidebar-services">
+          Catalogue search and shelf location. Borrowing, fines, and hold policy. Due dates and renewals by
+          patron card.
+        </p>
+
+        <section class="panel panel-compact">
+          <h2 class="panel-heading">Patron card lookup</h2>
+          <p id="sidebar-patron-card" class="panel-body mono">P-78421</p>
+          <p class="panel-note">
+            Use this card in chat for loans and renewals.
+            <a href="/help.html" target="_blank" rel="noopener">Learn more</a>
+          </p>
+          <button type="button" id="btn-view-sources" class="btn" style="margin-top: 10px; width: 100%;">View All Sources</button>
+        </section>
+
+        <details class="sidebar-disclosure">
+          <summary class="sidebar-disclosure-summary">Suggested questions</summary>
+          <div id="starter-prompts" class="starter-list"></div>
+        </details>
+
+        <section class="sidebar-chats" aria-label="Your chats">
+          <div class="chats-toolbar">
+            <h2 class="chats-heading">Chats</h2>
+            <button
+              type="button"
+              id="new-chat-sidebar-btn"
+              class="btn btn-icon btn-new-chat"
+              title="New chat"
+              aria-label="New chat"
+            >
+              +
+            </button>
+          </div>
+          <ul id="chat-list" class="chat-list"></ul>
+        </section>
+
+        <p class="sidebar-foot">
+          <span id="model-status" class="model-pill">Model: checking...</span>
+        </p>
+      </aside>
+
+      <div class="chat-column">
+        <header class="header">
+          <div class="header-text">
+            <h1 id="chat-heading">Virtual reference desk</h1>
+            <p class="subtitle" id="connection-line">Connecting...</p>
+          </div>
+          <div class="header-actions">
+            <span id="connection-status" class="status status-offline">Offline</span>
+            <a
+              href="/help.html"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-icon"
+              title="Help and instructions"
+              aria-label="Open help in a new tab"
+              >?</a
+            >
+            <button type="button" id="retry-btn" class="btn" hidden>Reconnect</button>
+            <button type="button" id="new-session-btn" class="btn">New chat</button>
+          </div>
+        </header>
+
+        <div id="context-bar-wrap" class="context-bar-wrap">
+          <div class="context-bar-header">
+            <span class="context-bar-title" title="Current session context usage.">Context window</span>
+            <span id="context-bar-stats" class="context-bar-stats">0 tokens (0%)</span>
+          </div>
+          <div class="context-bar-track" id="context-bar-track" title="Tokens used. Auto-summarises at 95%.">
+            <div id="context-bar-fill" class="context-bar-fill"></div>
+          </div>
+          <button type="button" id="btn-summarise" class="btn btn-sm btn-summarise" title="Compress old turns to save context space">
+            Summarise
+          </button>
+        </div>
+
+        <div id="system-banner" class="system-banner" role="status" aria-live="polite" hidden></div>
+
+        <main id="message-list" class="messages" aria-live="polite"></main>
+        <div id="thinking-indicator" class="thinking" hidden aria-live="polite">
+          <span class="thinking-label" id="thinking-label">NUCES Virtual Desk is thinking</span>
+        </div>
+
+        <footer class="composer" id="composer">
+          <form id="chat-form">
+            <label class="sr-only" for="user-input">Message</label>
+            <textarea
+              id="user-input"
+              rows="2"
+              placeholder="Search the catalogue, ask about policy, or check your loans..."
+              autocomplete="off"
+              maxlength="4000"
+            ></textarea>
+            <button type="submit" id="send-btn" class="btn btn-primary">Send</button>
+          </form>
+          <div class="composer-meta">
+            <p class="hint" id="composer-disclaimer">NUCES Virtual Desk can make mistakes so cross check first.</p>
+            <p id="char-count" class="char-count" aria-live="polite">0 / 4000</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <div id="app-modal" class="app-modal" hidden>
+      <div class="app-modal-backdrop" data-modal-dismiss="true"></div>
+      <div class="app-modal-panel" role="dialog" aria-modal="true" aria-labelledby="app-modal-title">
+        <h2 id="app-modal-title" class="app-modal-title"></h2>
+        <p id="app-modal-message" class="app-modal-message"></p>
+        <label id="app-modal-input-wrap" class="app-modal-input-wrap" hidden>
+          <span class="sr-only" id="app-modal-input-label">Input</span>
+          <input type="text" id="app-modal-input" class="app-modal-input" maxlength="80" />
+        </label>
+        <div class="app-modal-actions">
+          <button type="button" id="app-modal-cancel" class="btn">Cancel</button>
+          <button type="button" id="app-modal-confirm" class="btn btn-primary">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sources Modal -->
+    <div id="sources-modal" class="app-modal" hidden>
+      <div class="app-modal-backdrop" id="sources-modal-backdrop"></div>
+      <div class="app-modal-panel" style="max-width: 900px; width: 90vw; height: 80vh; display: flex; flex-direction: column;" role="dialog" aria-modal="true" aria-labelledby="sources-modal-title">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem; margin-bottom: 1rem;">
+          <h2 id="sources-modal-title" class="app-modal-title" style="margin: 0;">Library Sources</h2>
+          <button type="button" class="btn btn-icon" id="btn-close-sources-modal" style="font-size: 1.5rem; line-height: 1;">&times;</button>
+        </div>
+        <div style="display: flex; flex: 1; min-height: 0; gap: 1rem;">
+          <div style="flex: 1; border-right: 1px solid var(--border-subtle); overflow-y: auto; padding-right: 1rem;">
+            <ul id="sources-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem;"></ul>
+          </div>
+          <div style="flex: 2; overflow-y: auto; padding-left: 0.5rem;">
+            <h3 id="source-title-display" style="margin-top: 0;">Select a source...</h3>
+            <pre id="source-content-display" style="white-space: pre-wrap; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-base); background: var(--surface-float); padding: 1rem; border-radius: 6px; border: 1px solid var(--border-subtle);"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <script src="/assets/app.js?v=11"></script>
+  </body>
+</html>
